@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLITZ 💸 | الفخامة الحصرية والتقنية الفائقة</title>
+    
+    <!-- Google Fonts: Cairo & Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        onyx: '#0B0B0C',
+                        obsidian: '#121214',
+                        cardDark: '#18181C',
+                        gold: {
+                            light: '#F4E0A5',
+                            DEFAULT: '#D4AF37',
+                            dark: '#AA7C11'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        tajawal: ['Tajawal', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #0B0B0C;
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        /* Gold Gradient Text */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF6D6 0%, #D4AF37 50%, #AA7C11 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Gold Border Glow Hover Effect */
+        .gold-border-glow {
+            position: relative;
+            background: #121214;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gold-border-glow:hover {
+            border-color: rgba(212, 175, 55, 0.85);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+            transform: translateY(-5px);
+        }
+
+        /* Glassmorphism Navbar */
+        .glass-nav {
+            background: rgba(11, 11, 12, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0B0C;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #26262B;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+
+        /* Glow Effects */
+        .hero-glow {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(11, 11, 12, 0) 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Modal Transition */
+        .modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-active {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        /* Color option indicator */
+        .color-dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .color-dot:hover, .color-dot.active {
+            transform: scale(1.25);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+        }
+
+        /* Pulsing Warning Banner */
+        @keyframes pulse-red {
+            0%, 100% { border-color: rgba(239, 68, 68, 0.9); box-shadow: 0 0 18px rgba(239, 68, 68, 0.35); }
+            50% { border-color: rgba(239, 68, 68, 0.4); box-shadow: 0 0 6px rgba(239, 68, 68, 0.15); }
+        }
+        .warning-bep20 {
+            animation: pulse-red 2s infinite;
+        }
+    </style>
+</head>
+<body class="selection:bg-gold selection:text-black">
+
+    <!-- Ambient Hero Lighting -->
+    <div class="hero-glow"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 right-0 left-0 z-50 glass-nav py-4 px-6 md:px-16 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="#" class="text-3xl font-black tracking-widest flex items-center gap-2">
+                <span class="gold-gradient-text">BLITZ</span>
+                <span class="text-2xl">💸</span>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center space-x-8 space-x-reverse font-medium text-sm text-gray-300">
+                <a href="#hero" class="hover:text-gold transition-colors duration-200">الرئيسية</a>
+                <a href="#iphones" class="hover:text-gold transition-colors duration-200">أجهزة الآيفون</a>
+                <a href="#method" class="hover:text-gold transition-colors duration-200">الـ Méthod VIP 💎</a>
+                <a href="#vip-features" class="hover:text-gold transition-colors duration-200">المزايا الحصرية</a>
+            </div>
+
+            <!-- Cart Trigger & CTA -->
+            <div class="flex items-center gap-5">
+                <button onclick="toggleCartModal()" class="relative p-2 text-gray-300 hover:text-gold transition-colors">
+                    <i class="fa-solid fa-bag-shopping text-xl"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-gold text-black text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-lg">0</span>
+                </button>
+
+                <a href="#iphones" class="hidden sm:inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-bold tracking-wider text-black bg-gradient-to-r from-gold-light via-gold to-gold-dark hover:brightness-110 transition-all shadow-lg shadow-gold/20">
+                    تسوق النخبة
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative pt-36 pb-20 md:pt-48 md:pb-28 px-6 max-w-7xl mx-auto text-center flex flex-col items-center justify-center z-10">
+        
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/40 bg-gold/10 text-gold text-xs font-bold mb-8 shadow-sm">
+            <i class="fa-solid fa-crown text-xs"></i>
+            <span>منصة الفخامة الحصرية للطبقة المخملية والبرجوازية</span>
+        </div>
+
+        <h1 class="text-4xl md:text-7xl font-black tracking-tight mb-6 leading-tight max-w-4xl">
+            <span class="gold-gradient-text">BLITZ 💸</span> <br>
+            حيث تلتقي الفخامة بالتقنية الفائقة
+        </h1>
+
+        <p class="text-gray-400 text-base md:text-xl max-w-2xl mb-10 leading-relaxed">
+            احصل على أحدث إصدارات أبل من آيفون 14 برو ماكس وحتى 18 برو ماكس، بالإضافة إلى دليل الـ <span class="text-white font-bold underline decoration-gold">Méthod iPhone</span> المالي المتقدم مع دفع مشفر عبر بايننس و بايبت.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
+            <a href="#iphones" class="px-8 py-4 rounded-xl text-black bg-gradient-to-r from-gold-light via-gold to-gold-dark font-bold text-sm shadow-xl shadow-gold/20 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
+                <span>استكشف تشكيلة الآيفون</span>
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+            <a href="#method" class="px-8 py-4 rounded-xl border border-gold/40 bg-obsidian text-white font-bold text-sm hover:bg-gold/10 transition-all duration-300 flex items-center justify-center gap-3">
+                <span>احصل على الـ Méthod VIP</span>
+                <i class="fa-solid fa-gem text-gold"></i>
+            </a>
+        </div>
+
+        <!-- Trust Features -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 w-full pt-10 border-t border-white/5 text-center">
+            <div>
+                <p class="text-2xl md:text-3xl font-black text-white">100%</p>
+                <p class="text-xs text-gray-500 mt-1">تشفير تام وأمان عالي</p>
+            </div>
+            <div>
+                <p class="text-2xl md:text-3xl font-black text-gold">BEP20 Network</p>
+                <p class="text-xs text-gray-500 mt-1">Binance & Bybit Pay</p>
+            </div>
+            <div>
+                <p class="text-2xl md:text-3xl font-black text-white">+5,000</p>
+                <p class="text-xs text-gray-500 mt-1">عميل كبار الشخصيات</p>
+            </div>
+            <div>
+                <p class="text-2xl md:text-3xl font-black text-gold">Telegram VIP</p>
+                <p class="text-xs text-gray-500 mt-1">تأكيد ومتابعة فورية</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: iPhones Catalog -->
+    <section id="iphones" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
+            <div>
+                <span class="text-xs font-bold text-gold tracking-widest uppercase mb-2 block">تشكيلة الهواتف VIP</span>
+                <h2 class="text-3xl md:text-4xl font-black text-white">أسطول الآيفون حصرياً</h2>
+            </div>
+            <p class="text-gray-400 text-sm max-w-md mt-4 md:mt-0">
+                حدد اللون المفضل لديك من الخيارات المتاحة بكل سهولة قبل الإضافة إلى سلة الشراء.
+            </p>
+        </div>
+
+        <!-- iPhones Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+
+            <!-- 1. iPhone 14 Pro Max ($120) -->
+            <div class="gold-border-glow rounded-2xl p-5 flex flex-col justify-between" id="card-1">
+                <div>
+                    <div class="relative bg-obsidian rounded-xl p-4 mb-4 flex justify-center items-center overflow-hidden border border-white/5 h-64">
+                        <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80" alt="iPhone 14 Pro Max" class="h-full object-contain hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">iPhone 14 Pro Max</h3>
+                    <p class="text-xs text-gray-400 mb-3">شاشة Dynamic Island الفاخرة بكاميرا 48MP.</p>
+                    
+                    <div class="mb-4">
+                        <span class="text-[11px] text-gray-400 block mb-1">اللون المحدد: <strong id="color-name-1" class="text-gold">أسود عميق (Deep Black)</strong></span>
+                        <div class="flex gap-2">
+                            <span onclick="selectColor(1, 'أسود عميق (Deep Black)', '#1c1b22')" class="color-dot active border-2 border-gold" style="background-color: #1c1b22;"></span>
+                            <span onclick="selectColor(1, 'بنفسجي فاخر (Deep Purple)', '#483d8b')" class="color-dot border-2 border-transparent" style="background-color: #483d8b;"></span>
+                            <span onclick="selectColor(1, 'ذهبي ملكي (Royal Gold)', '#d4af37')" class="color-dot border-2 border-transparent" style="background-color: #d4af37;"></span>
+                            <span onclick="selectColor(1, 'فضّي بلاتيني (Platinum Silver)', '#e5e5e5')" class="color-dot border-2 border-transparent" style="background-color: #e5e5e5;"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] text-gray-500 block">السعر النهائي</span>
+                        <span class="text-xl font-extrabold text-gold">$120</span>
+                    </div>
+                    <button onclick="addIphoneToCart('iPhone 14 Pro Max', 120, 1)" class="p-3 bg-white/10 hover:bg-gold hover:text-black rounded-xl text-white transition-all shadow-md">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 2. iPhone 15 Pro ($120) -->
+            <div class="gold-border-glow rounded-2xl p-5 flex flex-col justify-between" id="card-2">
+                <div>
+                    <div class="relative bg-obsidian rounded-xl p-4 mb-4 flex justify-center items-center overflow-hidden border border-white/5 h-64">
+                        <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80" alt="iPhone 15 Pro" class="h-full object-contain hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">iPhone 15 Pro</h3>
+                    <p class="text-xs text-gray-400 mb-3">هيكل التيتانيوم القوي والخفيف مع معالج A17 Pro.</p>
+                    
+                    <div class="mb-4">
+                        <span class="text-[11px] text-gray-400 block mb-1">اللون المحدد: <strong id="color-name-2" class="text-gold">تيتانيوم طبيعي (Natural)</strong></span>
+                        <div class="flex gap-2">
+                            <span onclick="selectColor(2, 'تيتانيوم طبيعي (Natural)', '#8a8886')" class="color-dot active border-2 border-gold" style="background-color: #8a8886;"></span>
+                            <span onclick="selectColor(2, 'تيتانيوم أسود (Black Titanium)', '#2b2b2c')" class="color-dot border-2 border-transparent" style="background-color: #2b2b2c;"></span>
+                            <span onclick="selectColor(2, 'تيتانيوم أزرق (Blue Titanium)', '#2c3e50')" class="color-dot border-2 border-transparent" style="background-color: #2c3e50;"></span>
+                            <span onclick="selectColor(2, 'تيتانيوم أبيض (White Titanium)', '#f0f0f0')" class="color-dot border-2 border-transparent" style="background-color: #f0f0f0;"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] text-gray-500 block">السعر النهائي</span>
+                        <span class="text-xl font-extrabold text-gold">$120</span>
+                    </div>
+                    <button onclick="addIphoneToCart('iPhone 15 Pro', 120, 2)" class="p-3 bg-white/10 hover:bg-gold hover:text-black rounded-xl text-white transition-all shadow-md">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 3. iPhone 15 Pro Max ($170) -->
+            <div class="gold-border-glow rounded-2xl p-5 flex flex-col justify-between" id="card-3">
+                <div>
+                    <div class="relative bg-obsidian rounded-xl p-4 mb-4 flex justify-center items-center overflow-hidden border border-white/5 h-64">
+                        <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80" alt="iPhone 15 Pro Max" class="h-full object-contain hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">iPhone 15 Pro Max</h3>
+                    <p class="text-xs text-gray-400 mb-3">عدسة تقريب بصري 5X مع أداء فائق.</p>
+                    
+                    <div class="mb-4">
+                        <span class="text-[11px] text-gray-400 block mb-1">اللون المحدد: <strong id="color-name-3" class="text-gold">تيتانيوم أسود (Black)</strong></span>
+                        <div class="flex gap-2">
+                            <span onclick="selectColor(3, 'تيتانيوم أسود (Black)', '#2b2b2c')" class="color-dot active border-2 border-gold" style="background-color: #2b2b2c;"></span>
+                            <span onclick="selectColor(3, 'تيتانيوم طبيعي (Natural)', '#8a8886')" class="color-dot border-2 border-transparent" style="background-color: #8a8886;"></span>
+                            <span onclick="selectColor(3, 'تيتانيوم أزرق (Blue)', '#2c3e50')" class="color-dot border-2 border-transparent" style="background-color: #2c3e50;"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] text-gray-500 block">السعر النهائي</span>
+                        <span class="text-xl font-extrabold text-gold">$170</span>
+                    </div>
+                    <button onclick="addIphoneToCart('iPhone 15 Pro Max', 170, 3)" class="p-3 bg-white/10 hover:bg-gold hover:text-black rounded-xl text-white transition-all shadow-md">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 4. iPhone 16 Pro ($170) -->
+            <div class="gold-border-glow rounded-2xl p-5 flex flex-col justify-between" id="card-4">
+                <div>
+                    <div class="relative bg-obsidian rounded-xl p-4 mb-4 flex justify-center items-center overflow-hidden border border-white/5 h-64">
+                        <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=80" alt="iPhone 16 Pro" class="h-full object-contain hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">iPhone 16 Pro</h3>
+                    <p class="text-xs text-gray-400 mb-3">زر التحكم الذكي بالكاميرا ومعالج A18 Pro.</p>
+                    
+                    <div class="mb-4">
+                        <span class="text-[11px] text-gray-400 block mb-1">اللون المحدد: <strong id="color-name-4" class="text-gold">تيتانيوم صحراوي (Desert)</strong></span>
+                        <div class="flex gap-2">
+                            <span onclick="selectColor(4, 'تيتانيوم صحراوي (Desert)', '#c5a059')" class="color-dot active border-2 border-gold" style="background-color: #c5a059;"></span>
+                            <span onclick="selectColor(4, 'تيتانيوم داكن (Dark Titanium)', '#1f1f21')" class="color-dot border-2 border-transparent" style="background-color: #1f1f21;"></span>
+                            <span onclick="selectColor(4, 'تيتانيوم أبيض (White Titanium)', '#f5f5f7')" class="color-dot border-2 border-transparent" style="background-color: #f5f5f7;"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] text-gray-500 block">السعر النهائي</span>
+                        <span class="text-xl font-extrabold text-gold">$170</span>
+                    </div>
+                    <button onclick="addIphoneToCart('iPhone 16 Pro', 170, 4)" class="p-3 bg-white/10 hover:bg-gold hover:text-black rounded-xl text-white transition-all shadow-md">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 5. iPhone 16 Pro Max ($250) -->
+            <div class="gold-border-glow rounded-2xl p-5 flex flex-col justify-between" id="card-5">
+                <div>
+                    <div class="relative bg-obsidian rounded-xl p-4 mb-4 flex justify-center items-center overflow-hidden border border-white/5 h-64">
+                        <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=80" alt="iPhone 16 Pro Max" class="h-full object-contain hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">iPhone 16 Pro Max</h3>
+                    <p class="text-xs text-gray-400 mb-3">شاشة 6.9 بوصة الأكبر حجماً مع طاقة تدوم طويلاً.</p>
+                    
+                    <div class="mb-4">
+                        <span class="text-[11px] text-gray-400 block mb-1">اللون المحدد: <strong id="color-name-5" class="text-gold">تيتانيوم صحراوي (Desert)</strong></span>
+                        <div class="flex gap-2">
+                            <span onclick="selectColor(5, 'تيتانيوم صحراوي (Desert)', '#c5a059')" class="color-dot active border-2 border-gold" style="background-color: #c5a059;"></span>
+                            <span onclick="selectColor(5, 'أسود فاخر (Black Obsidian)', '#151517')" class="color-dot border-2 border-transparent" style="background-color: #151517;"></span>
+                            <span onclick="selectColor(5, 'طبيعي محدد (Natural Titan)', '#989795')" class="color-dot border-2 border-transparent" style="background-color: #989795;"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] text-gray-500 block">السعر النهائي</span>
+                        <span class="text-xl font-extrabold text-gold">$250</span>
+                    </div>
+                    <button onclick="addIphoneToCart('iPhone 16 Pro Max', 250, 5)" class="p-3 bg-white/10 hover:bg-gold hover:text-black rounded-xl text-white transition-all shadow-md">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 6. iPhone 17 Pro ($250) -->
+            <div class="gold-border-glow rounded-2xl p-5 flex flex-col justify-between" id="card-6">
+                <div>
+                    <div class="relative bg-obsidian rounded-xl p-4 mb-4 flex justify-center items-center overflow-hidden border border-white/5 h-64">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80" alt="iPhone 17 Pro" class="h-full object-contain hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">iPhone 17 Pro</h3>
+                    <p class="text-xs text-gray-400 mb-3">إصدار التيتانيوم الذكي مع شاشة ذات استجابة لحظية.</p>
+                    
+                    <div class="mb-4">
+                        <span class="text-[11px] text-gray-400 block mb-1">اللون المحدد: <strong id="color-name-6" class="text-gold">ذهبي أسود (Obsidian Gold)</strong></span>
+                        <div class="flex gap-2">
+                            <span onclick="selectColor(6, 'ذهبي أسود (Obsidian Gold)', '#3a331d')" class="color-dot active border-2 border-gold" style="background-color: #3a331d;"></span>
+                            <span onclick="selectColor(6, 'فضّي كريستالي (Crystal Silver)', '#e0e0e0')" class="color-dot border-2 border-transparent" style="background-color: #e0e0e0;"></span>
+                            <span onclick="selectColor(6, 'أسود مطلق (Midnight Black)', '#0a0a0a')" class="color-dot border-2 border-transparent" style="background-color: #0a0a0a;"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] text-gray-500 block">السعر النهائي</span>
+                        <span class="text-xl font-extrabold text-gold">$250</span>
+                    </div>
+                    <button onclick="addIphoneToCart('iPhone 17 Pro', 250, 6)" class="p-3 bg-white/10 hover:bg-gold hover:text-black rounded-xl text-white transition-all shadow-md">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 7. iPhone 17 Pro Max ($250) -->
+            <div class="gold-border-glow rounded-2xl p-5 flex flex-col justify-between" id="card-7">
+                <div>
+                    <div class="relative bg-obsidian rounded-xl p-4 mb-4 flex justify-center items-center overflow-hidden border border-white/5 h-64">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80" alt="iPhone 17 Pro Max" class="h-full object-contain hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">iPhone 17 Pro Max</h3>
+                    <p class="text-xs text-gray-400 mb-3">القمة التقنية مع طلاء الماسية المقاومة للخردشة.</p>
+                    
+                    <div class="mb-4">
+                        <span class="text-[11px] text-gray-400 block mb-1">اللون المحدد: <strong id="color-name-7" class="text-gold">تيتانيوم ملكي (Royal Titanium)</strong></span>
+                        <div class="flex gap-2">
+                            <span onclick="selectColor(7, 'تيتانيوم ملكي (Royal Titanium)', '#b59a57')" class="color-dot active border-2 border-gold" style="background-color: #b59a57;"></span>
+                            <span onclick="selectColor(7, 'رمادي أونيکس (Onyx Grey)', '#272727')" class="color-dot border-2 border-transparent" style="background-color: #272727;"></span>
+                            <span onclick="selectColor(7, 'أبيض لؤلؤي (Pearl White)', '#ffffff')" class="color-dot border-2 border-transparent" style="background-color: #ffffff;"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] text-gray-500 block">السعر النهائي</span>
+                        <span class="text-xl font-extrabold text-gold">$250</span>
+                    </div>
+                    <button onclick="addIphoneToCart('iPhone 17 Pro Max', 250, 7)" class="p-3 bg-white/10 hover:bg-gold hover:text-black rounded-xl text-white transition-all shadow-md">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 8. iPhone 18 ($380) -->
+            <div class="gold-border-glow rounded-2xl p-5 flex flex-col justify-between" id="card-8">
+                <div>
+                    <div class="relative bg-obsidian rounded-xl p-4 mb-4 flex justify-center items-center overflow-hidden border border-white/5 h-64">
+                        <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=600&q=80" alt="iPhone 18" class="h-full object-contain hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">iPhone 18</h3>
+                    <p class="text-xs text-gray-400 mb-3">جيل المستقبل المعتمد على الذكاء الاصطناعي الكامل.</p>
+                    
+                    <div class="mb-4">
+                        <span class="text-[11px] text-gray-400 block mb-1">اللون المحدد: <strong id="color-name-8" class="text-gold">أسود ليل (Midnight)</strong></span>
+                        <div class="flex gap-2">
+                            <span onclick="selectColor(8, 'أسود ليل (Midnight)', '#111113')" class="color-dot active border-2 border-gold" style="background-color: #111113;"></span>
+                            <span onclick="selectColor(8, 'ذهبي خفيف (Soft Gold)', '#e6c875')" class="color-dot border-2 border-transparent" style="background-color: #e6c875;"></span>
+                            <span onclick="selectColor(8, 'فضّي مستقبلي (Silver)', '#d6d6d6')" class="color-dot border-2 border-transparent" style="background-color: #d6d6d6;"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] text-gray-500 block">السعر النهائي</span>
+                        <span class="text-xl font-extrabold text-gold">$380</span>
+                    </div>
+                    <button onclick="addIphoneToCart('iPhone 18', 380, 8)" class="p-3 bg-white/10 hover:bg-gold hover:text-black rounded-xl text-white transition-all shadow-md">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 9. iPhone 18 Pro ($380) -->
+            <div class="gold-border-glow rounded-2xl p-5 flex flex-col justify-between" id="card-9">
+                <div>
+                    <div class="relative bg-obsidian rounded-xl p-4 mb-4 flex justify-center items-center overflow-hidden border border-white/5 h-64">
+                        <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=600&q=80" alt="iPhone 18 Pro" class="h-full object-contain hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">iPhone 18 Pro</h3>
+                    <p class="text-xs text-gray-400 mb-3">كاميرا تحت الشاشة وزجاج التيتانيوم الشفاف.</p>
+                    
+                    <div class="mb-4">
+                        <span class="text-[11px] text-gray-400 block mb-1">اللون المحدد: <strong id="color-name-9" class="text-gold">تيتانيوم أسود (Pure Black)</strong></span>
+                        <div class="flex gap-2">
+                            <span onclick="selectColor(9, 'تيتانيوم أسود (Pure Black)', '#0f0f10')" class="color-dot active border-2 border-gold" style="background-color: #0f0f10;"></span>
+                            <span onclick="selectColor(9, 'ذهبي فاخر (Champagne Gold)', '#d4af37')" class="color-dot border-2 border-transparent" style="background-color: #d4af37;"></span>
+                            <span onclick="selectColor(9, 'بلاتين رمادي (Platinum)', '#a1a1a1')" class="color-dot border-2 border-transparent" style="background-color: #a1a1a1;"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] text-gray-500 block">السعر النهائي</span>
+                        <span class="text-xl font-extrabold text-gold">$380</span>
+                    </div>
+                    <button onclick="addIphoneToCart('iPhone 18 Pro', 380, 9)" class="p-3 bg-white/10 hover:bg-gold hover:text-black rounded-xl text-white transition-all shadow-md">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 10. iPhone 18 Pro Max ($400) -->
+            <div class="gold-border-glow rounded-2xl p-5 flex flex-col justify-between" id="card-10">
+                <div>
+                    <div class="relative bg-obsidian rounded-xl p-4 mb-4 flex justify-center items-center overflow-hidden border border-white/5 h-64">
+                        <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=600&q=80" alt="iPhone 18 Pro Max" class="h-full object-contain hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">iPhone 18 Pro Max</h3>
+                    <p class="text-xs text-gray-400 mb-3">الهاتف الأفخم والأقوى عالمياً بدون منافس.</p>
+                    
+                    <div class="mb-4">
+                        <span class="text-[11px] text-gray-400 block mb-1">اللون المحدد: <strong id="color-name-10" class="text-gold">ذهب 24 كارات (24K Gold)</strong></span>
+                        <div class="flex gap-2">
+                            <span onclick="selectColor(10, 'ذهب 24 كارات (24K Gold)', '#d4af37')" class="color-dot active border-2 border-gold" style="background-color: #d4af37;"></span>
+                            <span onclick="selectColor(10, 'أسود ماسي (Diamond Black)', '#121214')" class="color-dot border-2 border-transparent" style="background-color: #121214;"></span>
+                            <span onclick="selectColor(10, 'فضي بلاتينيوم (Platinum)', '#f1f1f1')" class="color-dot border-2 border-transparent" style="background-color: #f1f1f1;"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] text-gray-500 block">السعر النهائي</span>
+                        <span class="text-xl font-extrabold text-gold">$400</span>
+                    </div>
+                    <button onclick="addIphoneToCart('iPhone 18 Pro Max', 400, 10)" class="p-3 bg-white/10 hover:bg-gold hover:text-black rounded-xl text-white transition-all shadow-md">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 2: Single Method Product Section ($750) -->
+    <section id="method" class="py-20 px-6 max-w-7xl mx-auto relative z-10 border-t border-white/10">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-xs font-bold text-gold tracking-widest uppercase mb-2 block">حقيقي وحصري لنخبة النخبة</span>
+            <h2 class="text-3xl md:text-5xl font-black text-white mb-4">الـ Méthod الحصرية 💸</h2>
+            <p class="text-gray-400 text-sm">
+                احصل على الدليل التقني الشامل والمشفر لإدارة الأجهزة المتقدمة بطرق آمنة وعالية الربحية.
+            </p>
+        </div>
+
+        <div class="max-w-xl mx-auto">
+            <div class="bg-cardDark p-8 rounded-3xl border-2 border-gold/40 relative shadow-2xl hover:border-gold transition-all duration-300 text-center">
+                <div class="w-16 h-16 rounded-2xl bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-2xl mb-6 mx-auto">
+                    <i class="fa-solid fa-vault"></i>
+                </div>
+                
+                <span class="text-xs bg-gold/20 text-gold font-bold px-4 py-1.5 rounded-full border border-gold/30">VIP Exclusive Method</span>
+                
+                <h3 class="text-2xl font-black text-white mt-4 mb-3">Méthod iPhone</h3>
+                <p class="text-xs text-gray-400 leading-relaxed mb-6 max-w-md mx-auto">
+                    المنهج الأكثر طلباً في الأوساط المخملية: استراتيجيات وبروتوكولات حصرية مشفرة تضمن لك الأمان الرقمي التام والوصول لنظام أبل المتقدم.
+                </p>
+
+                <!-- Pricing Display with Discount ($750 instead of $800) -->
+                <div class="flex items-center justify-center gap-4 mb-8">
+                    <span class="text-gray-500 line-through text-lg font-semibold">$800</span>
+                    <span class="text-3xl font-black text-gold">$750</span>
+                    <span class="bg-red-500/20 text-red-400 text-[11px] font-bold px-2.5 py-1 rounded-md border border-red-500/30">تخفيض خاص</span>
+                </div>
+
+                <ul class="text-xs text-gray-300 space-y-3 mb-8 text-right max-w-xs mx-auto border-t border-white/10 pt-4">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold"></i> دليل خطوة بخطوة باللغة العربية والإنجليزية</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold"></i> تحديثات مستمرة بدون تكلفة إضافية</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold"></i> دعم فني مباشر وسريع عبر التليجرام</li>
+                </ul>
+
+                <button onclick="addToCart('Méthod iPhone', 750, 'نسخة رقمية VIP')" class="w-full py-4 rounded-xl bg-gradient-to-r from-gold-light via-gold to-gold-dark text-black font-extrabold text-sm hover:brightness-110 transition-all shadow-lg shadow-gold/20">
+                    شراء الـ Méthod iPhone الآن 💸
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP Features Section -->
+    <section id="vip-features" class="py-16 px-6 max-w-7xl mx-auto my-12 bg-obsidian rounded-3xl border border-white/5">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="p-6">
+                <i class="fa-solid fa-shield-halved text-3xl text-gold mb-4"></i>
+                <h4 class="text-lg font-bold text-white mb-2">تشفير تام ومعاملات سرية</h4>
+                <p class="text-xs text-gray-400">نحن نحترم خصوصيتك لأقصى درجة، المعاملات تتم بشفافية وسرية فائقة.</p>
+            </div>
+            <div class="p-6 border-y md:border-y-0 md:border-x border-white/5">
+                <i class="fa-brands fa-bitcoin text-3xl text-gold mb-4"></i>
+                <h4 class="text-lg font-bold text-white mb-2">دفع رقمي عبر BEP20</h4>
+                <p class="text-xs text-gray-400">دعم كلي لشبكة BNB Smart Chain (BEP20) عبر Binance Pay و Bybit.</p>
+            </div>
+            <div class="p-6">
+                <i class="fa-solid fa-truck-fast text-3xl text-gold mb-4"></i>
+                <h4 class="text-lg font-bold text-white mb-2">شحن وتوصيل مؤمن</h4>
+                <p class="text-xs text-gray-400">توصيل مؤمن للمنتجات المادية أو تسليم فوري للمنتجات الرقمية والـ Methods.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-12 px-6 max-w-7xl mx-auto text-center md:text-right">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <a href="#" class="text-2xl font-black tracking-widest inline-block mb-2">
+                    <span class="gold-gradient-text">BLITZ</span> 💸
+                </a>
+                <p class="text-xs text-gray-500">متجر النخبة الأول للأجهزة الحصرية والحلول الرقمية الفاخرة.</p>
+            </div>
+            
+            <div class="flex items-center gap-6 text-xl">
+                <a href="https://t.me/BLITZ_VIP_SUPPORT" target="_blank" class="text-gray-400 hover:text-gold transition-colors"><i class="fa-brands fa-telegram"></i></a>
+                <a href="#" class="text-gray-400 hover:text-gold transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="text-gray-400 hover:text-gold transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+        <div class="mt-8 pt-8 border-t border-white/5 text-center text-xs text-gray-600">
+            &copy; 2026 BLITZ 💸. جميع الحقوق محفوظة للطبقة الأرستقراطية.
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Slide-over Modal -->
+    <div id="cart-modal" class="fixed inset-0 z-50 modal opacity-0 invisible flex justify-end">
+        <div onclick="toggleCartModal()" class="fixed inset-0 bg-black/80 backdrop-blur-sm"></div>
+
+        <div class="relative w-full max-w-md bg-obsidian border-r border-white/10 h-full p-6 flex flex-col justify-between z-10">
+            <div>
+                <div class="flex justify-between items-center mb-6 pb-4 border-b border-white/10">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping text-gold"></i>
+                        سلة المشتريات VIP
+                    </h3>
+                    <button onclick="toggleCartModal()" class="text-gray-400 hover:text-white">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+
+                <div id="cart-items" class="space-y-4 max-h-[55vh] overflow-y-auto pl-2">
+                    <p id="empty-cart-msg" class="text-center text-gray-500 text-sm py-10">سلة المشتريات فارغة حالياً</p>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-4">
+                <div class="flex justify-between items-center mb-6">
+                    <span class="text-sm text-gray-400">المجموع الكلي:</span>
+                    <span id="cart-total-price" class="text-2xl font-black text-gold">$0</span>
+                </div>
+                <button onclick="openCheckoutModal()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-gold-light via-gold to-gold-dark text-black font-bold text-sm hover:brightness-110 transition-all flex items-center justify-center gap-2">
+                    <span>متابعة الدفع والبيانات</span>
+                    <i class="fa-solid fa-shield-check"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Crypto Checkout & Telegram Form Modal -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 modal opacity-0 invisible flex items-center justify-center p-4">
+        <div onclick="closeCheckoutModal()" class="fixed inset-0 bg-black/90 backdrop-blur-md"></div>
+
+        <div class="relative w-full max-w-2xl bg-cardDark border border-gold/40 rounded-3xl p-6 md:p-8 z-10 max-h-[92vh] overflow-y-auto">
+            <button onclick="closeCheckoutModal()" class="absolute top-6 left-6 text-gray-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <span class="text-xs font-bold text-gold uppercase tracking-widest">إتمام الدفع وبيانات التوصيل</span>
+                <h3 class="text-2xl font-black text-white mt-1">منصة الدفع VIP 💸</h3>
+            </div>
+
+            <!-- CRITICAL WARNING BANNER FOR BEP20 NETWORK -->
+            <div class="warning-bep20 bg-red-950/90 border-2 border-red-500 rounded-2xl p-4 mb-6 text-center">
+                <div class="flex items-center justify-center gap-2 text-red-400 font-extrabold text-sm mb-1">
+                    <i class="fa-solid fa-triangle-exclamation text-lg"></i>
+                    <span>تحذير هام جداً وقاطع!</span>
+                </div>
+                <p class="text-xs text-red-200 font-bold leading-relaxed">
+                    يرجى التأكد من اختيار شبكة <span class="bg-red-500 text-white px-2 py-0.5 rounded font-mono text-sm inline-block mx-1">BEP20 (BNB Smart Chain)</span> حصراً عند إجراء التحويل لمنع ضياع رصيدك نهائياً!
+                </p>
+            </div>
+
+            <!-- Payment Method Switcher -->
+            <div class="flex gap-4 mb-6">
+                <button id="tab-binance" onclick="switchPayment('binance')" class="flex-1 py-3 rounded-xl border border-gold bg-gold/10 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all">
+                    <i class="fa-solid fa-coins text-yellow-400"></i>
+                    <span>Binance Pay (بايننس)</span>
+                </button>
+                <button id="tab-bybit" onclick="switchPayment('bybit')" class="flex-1 py-3 rounded-xl border border-white/10 bg-white/5 text-gray-400 font-bold text-xs flex items-center justify-center gap-2 hover:border-gold/50 transition-all">
+                    <i class="fa-solid fa-wallet text-amber-500"></i>
+                    <span>Bybit Pay (بايبت)</span>
+                </button>
+            </div>
+
+            <!-- Binance Wallet ONLY (No IDs / No QR) -->
+            <div id="payment-binance" class="bg-obsidian rounded-2xl p-5 border border-white/5 text-center mb-6">
+                <div class="text-right">
+                    <label class="text-xs text-gray-300 font-bold block mb-2">عنوان محفظة USDT (<span class="text-red-400">شبكة BEP20 فقط</span>):</label>
+                    <div class="flex items-center gap-2 bg-black/60 p-3 rounded-xl border border-gold/30">
+                        <input type="text" readonly value="0x71C7656EC7ab88b098defB751B7401B5f6d8976F" id="binance-usdt" class="bg-transparent text-xs text-gold font-mono w-full outline-none">
+                        <button onclick="copyToClipboard('binance-usdt')" class="px-4 py-2 bg-gold/20 hover:bg-gold hover:text-black text-gold text-xs font-bold rounded-lg transition-colors flex items-center gap-1">
+                            <i class="fa-regular fa-copy"></i>
+                            <span>نسخ</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bybit Wallet ONLY (No IDs / No QR) -->
+            <div id="payment-bybit" class="hidden bg-obsidian rounded-2xl p-5 border border-white/5 text-center mb-6">
+                <div class="text-right">
+                    <label class="text-xs text-gray-300 font-bold block mb-2">عنوان محفظة USDT (<span class="text-red-400">شبكة BEP20 فقط</span>):</label>
+                    <div class="flex items-center gap-2 bg-black/60 p-3 rounded-xl border border-gold/30">
+                        <input type="text" readonly value="0x71C7656EC7ab88b098defB751B7401B5f6d8976F" id="bybit-usdt" class="bg-transparent text-xs text-gold font-mono w-full outline-none">
+                        <button onclick="copyToClipboard('bybit-usdt')" class="px-4 py-2 bg-gold/20 hover:bg-gold hover:text-black text-gold text-xs font-bold rounded-lg transition-colors flex items-center gap-1">
+                            <i class="fa-regular fa-copy"></i>
+                            <span>نسخ</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Complete Customer Information Form -->
+            <form onsubmit="sendToTelegram(event)" class="space-y-4 border-t border-white/10 pt-4">
+                <h4 class="text-sm font-bold text-white text-right mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-user-check text-gold"></i>
+                    بيانات الشحن والاستلام للعميل
+                </h4>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div>
+                        <label class="text-[11px] text-gray-400 block mb-1">الاسم واللقب *</label>
+                        <input type="text" id="cust-fullname" required placeholder="محمد أحمد" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-500 outline-none focus:border-gold transition-colors">
+                    </div>
+                    <div>
+                        <label class="text-[11px] text-gray-400 block mb-1">رقم الهاتف *</label>
+                        <input type="tel" id="cust-phone" required placeholder="0655123456" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-500 outline-none focus:border-gold transition-colors">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div>
+                        <label class="text-[11px] text-gray-400 block mb-1">الولاية *</label>
+                        <input type="text" id="cust-state" required placeholder="مستغانم" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-500 outline-none focus:border-gold transition-colors">
+                    </div>
+                    <div>
+                        <label class="text-[11px] text-gray-400 block mb-1">البلدية *</label>
+                        <input type="text" id="cust-city" required placeholder="مستغانم المركز" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-500 outline-none focus:border-gold transition-colors">
+                    </div>
+                    <div>
+                        <label class="text-[11px] text-gray-400 block mb-1">الرمز البريدي *</label>
+                        <input type="text" id="cust-zip" required placeholder="27000" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-500 outline-none focus:border-gold transition-colors">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="text-[11px] text-gray-400 block mb-1">البريد الإلكتروني (الإيميل) *</label>
+                    <input type="email" id="cust-email" required placeholder="client@example.com" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-500 outline-none focus:border-gold transition-colors">
+                </div>
+
+                <div>
+                    <label class="text-[11px] text-gray-400 block mb-1">رقم المعاملة / Hash (TxID) بعد التحويل *</label>
+                    <input type="text" id="cust-txid" required placeholder="ضع رقم عملية التحويل المكتملة" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-500 outline-none focus:border-gold transition-colors">
+                </div>
+
+                <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-gold-light via-gold to-gold-dark text-black font-extrabold text-sm hover:brightness-110 transition-all shadow-xl shadow-gold/20 flex items-center justify-center gap-2 mt-4">
+                    <i class="fa-brands fa-telegram text-lg"></i>
+                    <span>إرسال الطلب وحجز المنتجات عبر التلغرام 💸</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 left-6 z-50 bg-cardDark border border-gold/40 text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none">
+        <i class="fa-solid fa-circle-check text-gold"></i>
+        <span id="toast-msg" class="text-xs font-semibold">تمت الإضافة بنجاح</span>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Telegram Destination User
+        const TELEGRAM_USERNAME = "BLITZ_VIP_SUPPORT"; 
+
+        let cart = [];
+        const selectedColors = {
+            1: 'أسود عميق (Deep Black)',
+            2: 'تيتانيوم طبيعي (Natural)',
+            3: 'تيتانيوم أسود (Black)',
+            4: 'تيتانيوم صحراوي (Desert)',
+            5: 'تيتانيوم صحراوي (Desert)',
+            6: 'ذهبي أسود (Obsidian Gold)',
+            7: 'تيتانيوم ملكي (Royal Titanium)',
+            8: 'أسود ليل (Midnight)',
+            9: 'تيتانيوم أسود (Pure Black)',
+            10: 'ذهب 24 كارات (24K Gold)'
+        };
+
+        // Color Selection Logic
+        function selectColor(cardId, colorName, colorHex) {
+            selectedColors[cardId] = colorName;
+            document.getElementById(`color-name-${cardId}`).innerText = colorName;
+            
+            const card = document.getElementById(`card-${cardId}`);
+            const dots = card.querySelectorAll('.color-dot');
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+                dot.style.borderColor = 'transparent';
+            });
+
+            event.target.classList.add('active');
+            event.target.style.borderColor = '#D4AF37';
+        }
+
+        // Add iPhone with selected color
+        function addIphoneToCart(title, price, cardId) {
+            const color = selectedColors[cardId];
+            addToCart(title, price, color);
+        }
+
+        // General Add to Cart
+        function addToCart(title, price, color = '') {
+            const existingIndex = cart.findIndex(item => item.title === title && item.color === color);
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push({ title, price, color, quantity: 1 });
+            }
+            updateCartUI();
+            showToast(`تمت إضافة ${title} ${color ? `(${color})` : ''} إلى السلة VIP`);
+        }
+
+        // Update Cart Dynamic UI
+        function updateCartUI() {
+            const cartCount = document.getElementById('cart-count');
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total-price');
+
+            const totalItemsCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+            cartCount.innerText = totalItemsCount;
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = `<p class="text-center text-gray-500 text-sm py-10">سلة المشتريات فارغة حالياً</p>`;
+                cartTotal.innerText = '$0';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                html += `
+                    <div class="flex items-center justify-between p-3.5 bg-white/5 rounded-xl border border-white/5">
+                        <div>
+                            <h4 class="text-xs font-bold text-white">${item.title}</h4>
+                            ${item.color ? `<span class="text-[10px] text-gray-400 block mb-1">اللون: ${item.color}</span>` : ''}
+                            <span class="text-xs text-gold font-semibold">$${item.price} × ${item.quantity} = $${itemTotal}</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="changeQuantity(${index}, -1)" class="w-6 h-6 rounded bg-white/10 hover:bg-gold hover:text-black text-xs text-white font-bold flex items-center justify-center transition-all">-</button>
+                            <span class="text-xs font-bold text-white">${item.quantity}</span>
+                            <button onclick="changeQuantity(${index}, 1)" class="w-6 h-6 rounded bg-white/10 hover:bg-gold hover:text-black text-xs text-white font-bold flex items-center justify-center transition-all">+</button>
+                            <button onclick="removeFromCart(${index})" class="mr-2 text-gray-500 hover:text-red-400 text-xs">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartItems.innerHTML = html;
+            cartTotal.innerText = `$${total}`;
+        }
+
+        function changeQuantity(index, delta) {
+            cart[index].quantity += delta;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function toggleCartModal() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.toggle('modal-active');
+        }
+
+        function openCheckoutModal() {
+            if (cart.length === 0) {
+                showToast('السلة فارغة! أضف منتجات قبل متابعة الدفع');
+                return;
+            }
+            toggleCartModal();
+            const checkoutModal = document.getElementById('checkout-modal');
+            checkoutModal.classList.add('modal-active');
+        }
+
+        function closeCheckoutModal() {
+            const checkoutModal = document.getElementById('checkout-modal');
+            checkoutModal.classList.remove('modal-active');
+        }
+
+        function switchPayment(method) {
+            const binanceTab = document.getElementById('tab-binance');
+            const bybitTab = document.getElementById('tab-bybit');
+            const binanceSec = document.getElementById('payment-binance');
+            const bybitSec = document.getElementById('payment-bybit');
+
+            if (method === 'binance') {
+                binanceTab.className = "flex-1 py-3 rounded-xl border border-gold bg-gold/10 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all";
+                bybitTab.className = "flex-1 py-3 rounded-xl border border-white/10 bg-white/5 text-gray-400 font-bold text-xs flex items-center justify-center gap-2 hover:border-gold/50 transition-all";
+                binanceSec.classList.remove('hidden');
+                bybitSec.classList.add('hidden');
+            } else {
+                bybitTab.className = "flex-1 py-3 rounded-xl border border-gold bg-gold/10 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all";
+                binanceTab.className = "flex-1 py-3 rounded-xl border border-white/10 bg-white/5 text-gray-400 font-bold text-xs flex items-center justify-center gap-2 hover:border-gold/50 transition-all";
+                bybitSec.classList.remove('hidden');
+                binanceSec.classList.add('hidden');
+            }
+        }
+
+        function copyToClipboard(elementId) {
+            const copyText = document.getElementById(elementId);
+            copyText.select();
+            document.execCommand("copy");
+            showToast("تم نسخ عنوان المحفظة بنجاح!");
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.innerText = message;
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+            }, 3000);
+        }
+
+        // Real Redirection & Form Submitting to Telegram Direct App Link
+        function sendToTelegram(e) {
+            e.preventDefault();
+
+            if (cart.length === 0) {
+                showToast('السلة فارغة!');
+                return;
+            }
+
+            const fullName = document.getElementById('cust-fullname').value;
+            const phone = document.getElementById('cust-phone').value;
+            const state = document.getElementById('cust-state').value;
+            const city = document.getElementById('cust-city').value;
+            const zip = document.getElementById('cust-zip').value;
+            const email = document.getElementById('cust-email').value;
+            const txid = document.getElementById('cust-txid').value;
+
+            let total = 0;
+            let itemsSummary = '';
+
+            cart.forEach((item, i) => {
+                const subTotal = item.price * item.quantity;
+                total += subTotal;
+                itemsSummary += `${i + 1}. ${item.title} ${item.color ? `[اللون: ${item.color}]` : ''}\n   الكمية: ${item.quantity} | السعر: $${subTotal}\n`;
+            });
+
+            // Construct Telegram Message Format
+            const textMessage = 
+`💸 *طلب جديد متكامل من متجر BLITZ VIP* 💸
+
+🛍️ *قائمة المنتجات المحددة:*
+${itemsSummary}
+💰 *المجموع الإجمالي:* $${total}
+
+----------------------------------
+👤 *بيانات الشحن كاملة للعميل:*
+• *الاسم واللقب:* ${fullName}
+• *رقم الهاتف:* ${phone}
+• *الولاية:* ${state}
+• *البلدية:* ${city}
+• *الرمز البريدي:* ${zip}
+• *الإيميل:* ${email}
+
+----------------------------------
+💳 *تأكيد عملية التحويل:*
+• *شبكة التحويل:* BEP20 (BNB Smart Chain) ⚠️
+• *رقم المعاملة (TxID / Hash):* ${txid}
+
+✨ تم تحرير الطلب تلقائياً عبر منصة BLITZ الإلكترونية.`;
+
+            const encodedMessage = encodeURIComponent(textMessage);
+            const telegramUrl = `https://t.me/${TELEGRAM_USERNAME}?text=${encodedMessage}`;
+
+            // Reset and close UI
+            closeCheckoutModal();
+            cart = [];
+            updateCartUI();
+            showToast('جاري فتح تليجرام وإرسال بيانات الطلب...');
+
+            // Direct Window Redirection
+            setTimeout(() => {
+                window.location.href = telegramUrl;
+            }, 500);
+        }
+    </script>
+</body>
+</html>
